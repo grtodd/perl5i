@@ -361,6 +361,24 @@ together in one variable, use the C<merge> option.
 
 See L<perl5i/capture()>.
 
+=head2 Can I use the re.pl from Devel::REPL with perl5i?
+
+Yes. If you add an rcfile to C<$HOME/.re.pl/perl5i> amd call C<re.pl> with
+an configuration argument like this:
+  
+  re.pl --rcfile perl5i
+
+then the statments in C<$HOME/.re.pl/perl5i> will be executed just as if you 
+executed them in the C<re.pl> command shell. Here ahe contents of a working 
+rcfile:
+  
+  # $HOME/.re.pl/perl5i
+  use perl5i::latest ;                                                                                           
+  use indirect ;   # this is needed last
+
+NB: C<use indirect ;> is a workaround for a current limitation in LexEnv.
+
+See L<Devel::REPL>.
 
 =head2 How can I call backticks without shell processing?
 
